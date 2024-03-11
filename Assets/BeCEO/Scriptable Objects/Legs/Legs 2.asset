@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56554f0f28e3174b9b0f26242568028, type: 3}
+  m_Name: Legs 2
+  m_EditorClassIdentifier: 
+  bodyPartName: Jeand
+  bodyPartAnimationID: 2
+  allBodyPartAnimations:
+  - {fileID: 7400000, guid: 1192ef4bbef466445b09c5505410765d, type: 2}
+  - {fileID: 7400000, guid: 24d30afcc75e20040a5ccf231723a70d, type: 2}
+  - {fileID: 7400000, guid: 75b15652a8f174c48953da1e2035eaa4, type: 2}
+  - {fileID: 7400000, guid: edb052b0303bf1340bf35b4ed3431cc0, type: 2}
+  - {fileID: 7400000, guid: 3150f444b97ded34db1337e6511514fc, type: 2}
+  - {fileID: 7400000, guid: 6859c66c949e13b4fb7c39caff306faf, type: 2}
+  - {fileID: 7400000, guid: d781bbec17501e049813404113654bab, type: 2}
+  - {fileID: 7400000, guid: f02aede18a010b44dbd98f2d5909755e, type: 2}

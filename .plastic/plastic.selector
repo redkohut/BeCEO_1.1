@@ -1,0 +1,4 @@
+repository "BeCEO 1.1@zheniazk@cloud"
+  path "/"
+    br "/main"
+    co "/main"

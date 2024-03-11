@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56554f0f28e3174b9b0f26242568028, type: 3}
+  m_Name: Hair 2
+  m_EditorClassIdentifier: 
+  bodyPartName: Lalala
+  bodyPartAnimationID: 2
+  allBodyPartAnimations:
+  - {fileID: 7400000, guid: 28838b34ca8352c49b020d9b560f0ba0, type: 2}
+  - {fileID: 7400000, guid: 3fa210c2fe0574d4cba9d18153432091, type: 2}
+  - {fileID: 7400000, guid: 86dcb508acb96b247a2365f009bd987a, type: 2}
+  - {fileID: 7400000, guid: 9de01502d81e88541ac58a46475cdff6, type: 2}
+  - {fileID: 7400000, guid: b92922428a4569845af289b535106395, type: 2}
+  - {fileID: 7400000, guid: f1b2ab67f277862418dec2cfa0d6b078, type: 2}
+  - {fileID: 7400000, guid: 7a08735a323978a4a96e8c685c87aa35, type: 2}
+  - {fileID: 7400000, guid: 87209272ed4767d4cafa2f50412ab971, type: 2}
