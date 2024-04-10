@@ -90,6 +90,40 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+
+        if (collision.tag == "MetroEnter")
+        {
+            Debug.Log("EnterToTheSubway");
+            Debug.Log(collision.name);
+            Metro metro = collision.GetComponent<Metro>();
+            metro.ShowSplashScreen();
+        }
+        // enter to wagon
+        if (collision.tag == "EnterWagon")
+        {
+            Debug.Log("EnterToTheWagon");
+            // need to generate randomly
+            WagonMec metroInside = GameObject.Find("SUBWAY").GetComponent<WagonMec>();
+            //WagonMec metroInside = collision.GetComponent<WagonMec>();
+            metroInside.StartRiding();
+        }
+        // exit from subway
+        if (collision.tag == "MetroExit")
+        {
+            Debug.Log("EnterToTheCity");
+            // need to generate randomly
+            WagonMec metroInside = GameObject.Find("SUBWAY").GetComponent<WagonMec>();
+            //WagonMec metroInside = collision.GetComponent<WagonMec>();
+            metroInside.ShowSplashScreen();
+        }
+
+        if (collision.tag == "SchoolEnter")
+        {
+            Debug.Log("EnterToTheSchool");
+
+            SchoolEnter schoolEnter = collision.GetComponent<SchoolEnter>();
+            schoolEnter.ShowSplashScreen();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -133,6 +167,8 @@ public class PlayerMovement : MonoBehaviour
                 isNotDoorZone = true;
             }
             
-        }        
+        }
+
+        
     }
 }

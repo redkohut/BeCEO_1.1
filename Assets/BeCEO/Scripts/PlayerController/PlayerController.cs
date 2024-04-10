@@ -27,8 +27,12 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D[] doorColliders;
     private Door doorScript;
     // bool
-    private bool isInDoorTriggerZone = false;
+    public bool isInDoorTriggerZone = false;
     private bool isOpenDoor = false;
+    #endregion
+
+    #region Metro
+    public bool isInMetroZone = false;
     #endregion
     private void Start()
     {
@@ -62,6 +66,11 @@ public class PlayerController : MonoBehaviour
             }
 
 
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && isInDoorTriggerZone)
+        {
+            // Load other scene
+            SceneLoader.LoadScene("Metro");
         }
 
         movement.Normalize();
@@ -110,10 +119,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ShowPanelInfoMetro(bool isShow)
+    {
+        if (isShow)
+        {
+            panelInfo.SetActive(true);
+            textPanelInfo.text = "[SPACE] to enter the subway";
+        }
+        else
+        {
+            panelInfo.SetActive(false);
+        }
+        
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("void run()");
         if (collision.tag == "Door")
         {
+            Debug.Log("void run()");
             // set flag that we are in the triggerZone
             isInDoorTriggerZone = true;
             // show info panel
@@ -136,6 +160,16 @@ public class PlayerController : MonoBehaviour
 
 
         }
+        if (collision.tag == "MetroEnter")
+        {
+            Debug.Log("CHECK IF enter");
+
+            // can input player
+            ShowPanelInfoMetro(true);
+            isInMetroZone = true;
+
+
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -145,6 +179,17 @@ public class PlayerController : MonoBehaviour
             panelInfo.SetActive(false);
             // set flag that we are not in the triggerZone
             isInDoorTriggerZone = false;
+        }
+
+        if (collision.tag == "MetroEnter")
+        {
+            Debug.Log("exit");
+
+            // can input player
+            ShowPanelInfoMetro(false);
+            isInMetroZone = false;
+
+
         }
     }
 }

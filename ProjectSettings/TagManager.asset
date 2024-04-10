@@ -9,6 +9,11 @@ TagManager:
   - ZoneDoor
   - Core
   - PlayerDialogueZone
+  - metroEnter
+  - MetroEnter
+  - EnterWagon
+  - MetroExit
+  - SchoolEnter
   layers:
   - Default
   - TransparentFX

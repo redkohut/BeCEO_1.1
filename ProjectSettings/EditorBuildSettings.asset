@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BeCEO/Scenes/City.unity
     guid: e0e9c6c92cdeff2428ba5da4d8cf7f47
+  - enabled: 1
+    path: Assets/BeCEO/Scenes/Metro.unity
+    guid: 9087b21878f998b4bbf2981a6b02a1e7
+  - enabled: 1
+    path: Assets/BeCEO/Scenes/SchoolStation.unity
+    guid: 49e3778c552beb34eb488140ddc28957
+  - enabled: 1
+    path: Assets/BeCEO/Scenes/School.unity
+    guid: 1c839045a2c4b7f4aaa2cc064d05e754
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f45ca1b46a921f24ab80bb0e518dbaaa, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: b1bd1de6d341c4c40bab2ebc85de5734, type: 2}

@@ -2497,7 +2497,7 @@ PrefabInstance:
     - target: {fileID: 6680909940648726312, guid: 86e4236ca54b2794bbc26d12b9371eb1, type: 3}
       propertyPath: fadedSplashScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782086892938514731}
     - target: {fileID: 7285707373710252157, guid: 86e4236ca54b2794bbc26d12b9371eb1, type: 3}
       propertyPath: m_Name
       value: door (1)
@@ -4079,6 +4079,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bed52ff182c516499963a4b6a5065a3, type: 3}
+--- !u!1 &782086892938514731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3613339446234703444, guid: 6bed52ff182c516499963a4b6a5065a3, type: 3}
+  m_PrefabInstance: {fileID: 782086892938514730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1165206944817245288
 Transform:
   m_ObjectHideFlags: 0
@@ -4173,6 +4178,8 @@ MonoBehaviour:
   moveSpeed: 0.5
   panelInfo: {fileID: 0}
   textPanelInfo: {fileID: 0}
+  isInDoorTriggerZone: 0
+  isInMetroZone: 0
 --- !u!483693784 &2041481850766648454
 TilemapRenderer:
   m_ObjectHideFlags: 0
