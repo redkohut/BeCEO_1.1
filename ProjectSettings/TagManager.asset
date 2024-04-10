@@ -14,6 +14,7 @@ TagManager:
   - EnterWagon
   - MetroExit
   - SchoolEnter
+  - Computer
   layers:
   - Default
   - TransparentFX

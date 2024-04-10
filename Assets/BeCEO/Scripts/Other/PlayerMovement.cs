@@ -124,6 +124,11 @@ public class PlayerMovement : MonoBehaviour
             SchoolEnter schoolEnter = collision.GetComponent<SchoolEnter>();
             schoolEnter.ShowSplashScreen();
         }
+
+        if (collision.tag == "Computer")
+        {
+            SceneLoader.LoadScene("Computer");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

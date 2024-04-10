@@ -22,7 +22,7 @@ public class SchoolEnter : MonoBehaviour
     IEnumerator StartSplash()
     {
         fadedSplashScreen.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         // виключити
         SceneLoader.LoadScene(nextScene);
 

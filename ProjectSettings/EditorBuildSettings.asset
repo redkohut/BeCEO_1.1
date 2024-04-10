@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BeCEO/Scenes/School.unity
     guid: 1c839045a2c4b7f4aaa2cc064d05e754
+  - enabled: 1
+    path: Assets/BeCEO/Scenes/Computer.unity
+    guid: c8a2919042c33ed43a9fcea5db38ca8d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f45ca1b46a921f24ab80bb0e518dbaaa, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: b1bd1de6d341c4c40bab2ebc85de5734, type: 2}
