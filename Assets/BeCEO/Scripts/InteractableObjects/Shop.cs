@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
@@ -7,6 +8,7 @@ public class Shop : MonoBehaviour
     #region values private 
     [Space]
     [SerializeField] private GameObject panelEnterToShop;
+    [SerializeField] private GameObject panelBAnnerInfo;
     [Space]
     [SerializeField] private List<GameObject> lsitOfValues;
     [Space]
@@ -14,7 +16,7 @@ public class Shop : MonoBehaviour
     [Space]
     [SerializeField] private Transform character;
 
-
+    private float time;
 
     [Header("AUdioController")]
     [Space]
@@ -30,6 +32,8 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        panelEnterToShop.SetActive(false); // need to off
+        panelBAnnerInfo.SetActive(false);
         // first of all need to get referect ce
         if (character != null)
         {
@@ -45,6 +49,24 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // need to count
+
+        time += Time.deltaTime;
+
+        if (time >= 5f)
+        {
+            panelEnterToShop.SetActive(true);
+            panelBAnnerInfo.SetActive(true);
+        }
+
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("player"))
+        {
+            // start conversatin
+        }
     }
 }
