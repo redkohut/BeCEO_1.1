@@ -65,8 +65,11 @@ namespace BeCEO.UI
 
         private void BuildChoiceList()
         {
-            choiceRoot.DetachChildren();
-
+            //choiceRoot.DetachChildren();
+            foreach (Transform item in choiceRoot)
+            {
+                Destroy(item.gameObject);
+            }
             foreach (DialogueNode choice in playerConversant.GetChoices())
             {
                 GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);

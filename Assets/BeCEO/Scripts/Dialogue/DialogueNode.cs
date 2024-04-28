@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using BeCEO.Core;
 
 namespace BeCEO.Dialogue
 {
@@ -21,6 +22,9 @@ namespace BeCEO.Dialogue
         // на вибрані відповіді 
         [SerializeField] private string onEnterAction;
         [SerializeField] private string onExitAction;
+
+        //
+        [SerializeField] private Condition condition;
         public Rect GetRect()
         {
             return rect;
@@ -51,6 +55,12 @@ namespace BeCEO.Dialogue
         {
             return onExitAction;
         }
+
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
+        }
+
 
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)

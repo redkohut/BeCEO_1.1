@@ -12,27 +12,56 @@ namespace BeCEO.UI.Quests
         [SerializeField] private Transform objectiveContainer;
         [SerializeField] private GameObject objectivePrefab;
         [SerializeField] private GameObject objectiveIncompletePrefab;
+        [SerializeField] private TextMeshProUGUI rewardText;
 
         public void Setup(QuestStatus status)
         {
             Quest quest = status.GetQuest();
             title.text = quest.GetTitle();
-            objectiveContainer.DetachChildren();
+            //objectiveContainer.DetachChildren();
+            foreach (Transform item in objectiveContainer)
+            {
+                Destroy(item.gameObject);
+            }
 
-            foreach (string objective in quest.GetObjectives())
+            foreach (var objective in quest.GetObjectives())
             {
                 // взнаємо чи виконане завдання
                 GameObject prefab = objectiveIncompletePrefab;
 
-                if (status.IsObjectiveComplete(objective))
+                if (status.IsObjectiveComplete(objective.reference))
                 {
                     prefab = objectivePrefab;
                 }
 
                 GameObject objectiveInstance = Instantiate(prefab, objectiveContainer);
                 TextMeshProUGUI objectiveText = objectiveInstance.GetComponentInChildren<TextMeshProUGUI>();
-                objectiveText.text = objective;
+                objectiveText.text = objective.description;
             }
+            rewardText.text = GetRewardText(quest);
+        }
+
+        private string GetRewardText(Quest quest)
+        {
+            string rewardText = "";
+            foreach (var reward in quest.GetRewards())
+            {
+                if (rewardText != "")
+                {
+                    rewardText += ", ";
+                }
+                if (reward.number > 1)
+                {
+                    rewardText += reward.number + " ";
+                }
+                rewardText += reward.item;
+            }
+            if (rewardText == "")
+            {
+                rewardText = "No reward";
+            }
+            rewardText += ".";
+            return rewardText;
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System;
+using BeCEO.Core;
 
 
 namespace BeCEO.Dialogue
@@ -88,7 +89,7 @@ namespace BeCEO.Dialogue
 
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
 
         }
 
@@ -105,7 +106,7 @@ namespace BeCEO.Dialogue
         {
             // взнаємо наступний ChildNode в системі діалогу (чи то відповдіь, чи то розповідь)
             // і ставимо чекпоінт
-            int countOfPlayerResposes = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int countOfPlayerResposes = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (countOfPlayerResposes > 0)
             {
                 isChoosing = true;
@@ -121,7 +122,7 @@ namespace BeCEO.Dialogue
                 onConversationUpdated();
                 return;
             }*/
-            DialogueNode[] children = currentDialogue.GetAllChildren(currentNode).ToArray();
+            DialogueNode[] children = FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).ToArray();
 
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
 
@@ -136,9 +137,24 @@ namespace BeCEO.Dialogue
 
         public bool HasNext()
         {
-            return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
         }
 
+        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        {
+            foreach (var node in inputNode)
+            {
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
+        }
         private void TriggerEnterAction()
         {
             if  (currentNode != null)
