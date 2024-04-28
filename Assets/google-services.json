@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "303326593592",
+    "project_id": "beceo-1",
+    "storage_bucket": "beceo-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303326593592:android:f49c095fadfc3532679ccd",
+        "android_client_info": {
+          "package_name": "com.dziga.beceo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfZo1RMT4AB32B1YKYlLPrT9QOe8wbJvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
