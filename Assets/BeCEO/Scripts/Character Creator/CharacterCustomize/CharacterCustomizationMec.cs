@@ -26,7 +26,10 @@ public class CharacterCustomizationMec : MonoBehaviour
     // gender
     private int gender = 0;
 
-
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("gender", 0);
+    }
     // BUTTON SWITCHGENDER
     public void SwitchGender()
     {
@@ -55,12 +58,15 @@ public class CharacterCustomizationMec : MonoBehaviour
     {
         genderButtonAmimator.Play("SwitchToMale");
 
+        PlayerPrefs.SetInt("gender", 1);
         return 1;
     }
 
     private int SwitchToFemale()
     {
         genderButtonAmimator.Play("SwitchToFemale");
+
+        PlayerPrefs.SetInt("gender", 0);
         return 0;
     }
 

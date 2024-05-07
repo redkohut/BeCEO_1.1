@@ -37,6 +37,7 @@ public class BodyPartsManager : MonoBehaviour
 
     public void UpdateBodyParts()
     {
+        // var tempArrayt = FirebaseUserManager.GetCustomizeData();
         // Override default animation clips with character body parts
         for (int partIndex = 0; partIndex < bodyPartTypes.Length; partIndex++)
         {

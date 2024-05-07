@@ -15,6 +15,7 @@ TagManager:
   - MetroExit
   - SchoolEnter
   - Computer
+  - bodySelector
   layers:
   - Default
   - TransparentFX

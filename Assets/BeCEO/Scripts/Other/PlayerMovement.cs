@@ -2,6 +2,7 @@
 // For help, check out the tutorial - https://youtu.be/PNWK5o9l54w
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,10 +20,54 @@ public class PlayerMovement : MonoBehaviour
     // відкрити в двері
     private bool isNotDoorZone = true;
 
+    
+
+    [Header("Pointer")]
+    public GameObject pointer;
+    public RectTransform arrow;
+
+    private string nameCurrentScene;
+    private Transform targetPosition;
+
+    private Camera mainCamera;
+    private float distanceCanvas;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+
+        mainCamera = Camera.main;
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera not found!");
+        }
+
+
+        // взнаємо яка зараз сцена і виставимо значення напрямку
+        string nameCurrentScene = SceneManager.GetActiveScene().name;
+
+        if (nameCurrentScene == "Home")
+            targetPosition = GameObject.Find("doorExit").transform;
+        else if (nameCurrentScene == "City")
+            targetPosition = GameObject.Find("PointerEnterToMetro").transform;
+        else if (nameCurrentScene == "Metro")
+            targetPosition = GameObject.Find("ExitZoneFromMetro").transform;
+        else if (nameCurrentScene == "SchoolStation")
+            targetPosition = GameObject.Find("DoorEnterToSchool").transform;
+        else if (nameCurrentScene == "School")
+            targetPosition = GameObject.Find("PlayersComputerZone").transform;
+        else
+        {
+            targetPosition = null;
+        }
+
+        if (targetPosition != null)
+        {
+            arrow = GameObject.Find("ArrowDirection").GetComponent<RectTransform>();
+            pointer.SetActive(true);
+        }
+        else pointer.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -34,6 +79,46 @@ public class PlayerMovement : MonoBehaviour
         playerMovement.Normalize();
 
         UpdateAnimationAndMove();
+
+        if (targetPosition != null)
+        {
+            Vector3 fromPosition = Camera.main.transform.position;
+
+            fromPosition.z = 0f;
+            Vector3 dir = (targetPosition.position - fromPosition).normalized;
+
+            float angle = GetAngleFromVectorFloat(dir);
+
+            arrow.localEulerAngles = new Vector3(0, 0, angle); 
+
+        }
+    }
+    public float GetAngleFromVectorFloat(Vector3 dir)
+    {
+        // Використовуємо арктангенс, щоб отримати кут у радіанах
+        float angleRad = Mathf.Atan2(dir.y, dir.x);
+
+        // Конвертуємо радіани в градуси
+        float angleDeg = angleRad * Mathf.Rad2Deg;
+
+        // Коригуємо від'ємні кути
+        if (angleDeg < 0)
+        {
+            angleDeg += 360;
+        }
+
+        // Повертаємо кут
+        return angleDeg;
+    }
+    public Vector3 UpdatePointerArrow(Transform targetTransform)
+    {
+        // Отримуємо напрямок від поточного об'єкту до цільового
+        Vector3 direction = targetTransform.position - transform.position;
+
+        // Нормалізуємо напрямок, щоб отримати вектор одиничної довжини
+        direction.Normalize();
+
+        return direction;
     }
 
     private void UpdateAnimationAndMove()

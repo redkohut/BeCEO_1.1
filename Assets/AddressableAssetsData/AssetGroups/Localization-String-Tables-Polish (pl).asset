@@ -18,11 +18,17 @@ MonoBehaviour:
   m_GUID: a6005d8e7abb0b34ba51cdde1cb3e767
   m_SerializeEntries:
   - m_GUID: 11c4b3d67118fcb4d95dde1f06b266bb
-    m_Address: StringExampleTable_pl
+    m_Address: Customization_pl
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pl
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 737da0d478dd939439300100f60c206e
+    m_Address: UserDataRegister_pl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pl
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 862dcd37f012e584aa6b2870674279e5, type: 2}

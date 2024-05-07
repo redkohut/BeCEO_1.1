@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/BeCEO/Scenes/CharacterCustomization.unity
     guid: 43cd35f9889131b428ceadb757d629c1
   - enabled: 1
+    path: Assets/BeCEO/Scenes/Menu.unity
+    guid: 63b8bfbb903c5da4bbd4ef60f1cd33ff
+  - enabled: 1
     path: Assets/BeCEO/Scenes/Home.unity
     guid: dd204db277c13084ca5570ccfc5e4c13
   - enabled: 1

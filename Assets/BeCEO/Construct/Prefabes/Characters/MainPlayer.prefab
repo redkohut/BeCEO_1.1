@@ -637,13 +637,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7415ad6d935330848a80c5505518987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statuses:
-  - quest: {fileID: 11400000, guid: 5187f3d560964dd4da97269db7b370bb, type: 2}
-    completedObjectives:
-    - buy
-    - eat
-  - quest: {fileID: 11400000, guid: 58bf36a18b0378e45b0b5ed0ee38e87a, type: 2}
-    completedObjectives:
-    - cloth
-    - wqastyed
-    - gowaway

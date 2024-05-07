@@ -8037,7 +8037,7 @@ GameObject:
   - component: {fileID: 1715187467}
   - component: {fileID: 1715187466}
   m_Layer: 0
-  m_Name: Square
+  m_Name: PlayersComputerZone
   m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
